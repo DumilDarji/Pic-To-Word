@@ -29,8 +29,9 @@ exports.Get_id = async (req, res) => {
 
     var data = await user.find().skip(start).limit(limit);
 
+
     res.status(200).json({
-        status: "Success Get id ",
+        status: "Success Get id yoo",
         data,
     })
 }
