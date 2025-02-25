@@ -31,7 +31,7 @@ exports.Get_id = async (req, res) => {
 
 
     res.status(200).json({
-        status: "Success Get id  dd",
+        status: "Success Get id Index ",
         data,
     })
 }
