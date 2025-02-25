@@ -16,9 +16,21 @@ exports.Add = async (req, res) => {
 }
 exports.Get_id = async (req, res) => {
     var id = req.params.id;
-    var data = await user.find(id,req.body);
+    var Total_record = await user.countDocuments();
+    var page_no = req.query.page_no || 1;
+
+    if (page_no == undefined)
+    {
+        page_no = 1;
+    }
+    var limit = 1;
+    var t_page = Math.ceil(Total_record / limit);
+    var start = (page_no - 1) * limit;
+
+    var data = await user.find().skip(start).limit(limit);
+
     res.status(200).json({
         status: "Success Get id ",
-        
+        data,
     })
 }
